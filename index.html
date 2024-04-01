@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Discord nitro L1ry</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: navy;
+            margin-left: 20px;
+        }
+    </style>
+    <script>
+        function generateRandomString(length = 16) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        function sendMessages() {
+            const numMessages = document.getElementById('numMessages').value;
+            const displayArea = document.getElementById('displayArea');
+            displayArea.innerHTML = ''; // Clear previous results
+
+            for (let i = 0; i < numMessages; i++) {
+                const randomString = generateRandomString();
+                const fullUrl = 'https://discord.gift/' + randomString;
+                const paragraph = document.createElement('p');
+                paragraph.textContent = '' + fullUrl;
+                displayArea.appendChild(paragraph);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>https://discord.gg/softbank</h1>
+    <label for="numMessages">生成する個数:</label>
+    <input type="number" id="numMessages" name="numMessages" min="1" required>
+    <button onclick="sendMessages()">れいくんすきだよ</button>
+    <div id="displayArea"></div>
+</body>
+</html>
